@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1><a href="/">Home</a></h1>
+        <h1><a href="/navigation/about/">About</a></h1>
+        <h1><a href="/navigation/contact/">Contact</a></h1>
+
+        <h2>This is home page</h2>
+        <hr />
+
+        <h4>Author: {{author}}</h4>
+        <h4>Age: {{age}}</h4>
+
+        <hr />
+
+        {% if age >= 25 %}
+        <h4>You will get driving license</h4>
+        {% elif age >= 15 and age <= 24 %}
+        <h4>You will not get driving license</h4>
+        {% else %}
+        <h4>You're a child</h4>
+        {% endif %}
+
+        <hr />
+        {% for i in courses%}
+        <h4>{{i.name}} {{i.fee}}</h4>
+        {% endfor %}
+
+        <hr />
+        <h3>Django Template Filters</h3>
+
+        {{ ex1|escape|linebreaks }}
+
+        <h5>{{ex2 | length}}</h5>
+        <h5>{{ex3 | add:"5"}}</h5>
+        <h5>{{ex4 | addslashes}}</h5>
+        <h5>{{ex5 | capfirst}}</h5>
+        <h5>{{ex6 | center:"20"}}</h5>
+        <h5>{{ex7 | cut:" "}}</h5>
+        <h5>{{ex8 | date:"D d M Y"}}</h5>
+        <h5>{{ex9 | default:"Nothing"}}</h5>
+        <h5>{{courses | dictsort:"fee"}}</h5>
+        <h5>{{age | divisibleby:"5"}}</h5>
+
+        <h5>{{'(single quote) is converted to &#x27;' | escape}}</h5>
+
+        <h5>{{ex10 | filesizeformat}}</h5>
+        <h5>{{ex2 | first}}</h5>
+        <h5>{{ex2 | join:"//"}}</h5>
+        <h5>{{ex2 | last}}</h5>
+        <h5>{{ex2 | length}}</h5>
+        <h5>{{ex2 | linenumbers}}</h5>
+        <h5>{{ex6 | lower}}</h5>
+        <h5>{{ex6 | make_list}}</h5>
+        <h5>{{ex2 | random}}</h5>
+        <h5>{{ex2 | slice:"2"}}</h5>
+        <h5>{{ex7 | slugify}}</h5>
+        <h5>{{ex8 | time:"H:i"}}</h5>
+        <h5>{{ ex8 | timesince:ex8 }}</h5>
+        <h5>{{ex7 | title}}</h5>
+        <h5>{{ex2 | unordered_list}}</h5>
+        <h5>{{ex7 | upper}}</h5>
+        <h5>{{ex7 | wordcount}}</h5>
+        <h5>{{ex7 | join:"-"}}</h5>
+        <h5>{{ex8 | date:"DATE_FORMAT"}}</h5>
+        <h5>{{ex8 | date:"DATETIME_FORMAT"}}</h5>
+        <h5>{{ex8 | date:"SHORT_DATE_FORMAT"}}</h5>
+        <h5>{{ex8 | date:"SHORT_DATETIME_FORMAT"}}</h5>
+        <h5>{{ex8 | date}}</h5>
+
+        <!-- Linenumbers Filter -->
+
+        <h5>{{ex8 | time:"H\h i\m"}}</h5>
+
+        <h5>{{ex7 | truncatechars:5}}</h5>
+
+        <h5>{{ex7 | truncatewords:3}}</h5>
+
+        <p>
+            {{'<b>I</b> <button>love</button> <span>dogs</span>' | striptags}}
+        </p>
+
+        <p>You have {{ age }} message{{ age | pluralize }}</p>
+    </body>
+</html>
